@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prateek mishra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 400px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1); /* Adjusted for transparency */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            animation: slideIn 1.2s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .container .inputBox {
+            position: relative;
+            margin-bottom: 30px;
+            animation: inputBoxFadeIn 1.8s ease-out forwards;
+        }
+
+        @keyframes inputBoxFadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container .inputBox input {
+            width: 100%;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .container .inputBox input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .container .inputBox label {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            color: #ccc;
+            font-size: 16px;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .container .inputBox input:focus ~ label,
+        .container .inputBox input:valid ~ label {
+            top: -20px;
+            left: 15px;
+            color: #fff;
+            font-size: 12px;
+            background: rgba(155, 89, 182, 0.8);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #9b59b6;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: buttonSlideIn 2s ease forwards;
+        }
+
+        @keyframes buttonSlideIn {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .container input[type="submit"]:hover {
+            background: #8e44ad;
+            transform: scale(1.05);
+        }
+
+        .container .forgot {
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 2.2s ease forwards;
+        }
+
+        .container .forgot a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .container .forgot a:hover {
+            color: #ccc;
+        }
+
+        .container .forgot a:before {
+            content: "↗";
+            margin-right: 5px;
+            transition: margin-right 0.3s ease;
+        }
+
+        .container .forgot a:hover:before {
+            margin-right: 10px;
+        }
+
+        /* Floating stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: starsAnimation 30s linear infinite;
+        }
+
+        @keyframes starsAnimation {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <div class="inputBox">
+                <input type="text" required="required">
+                <label>Username</label>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required">
+                <label>Password</label>
+            </div>
+            <input type="submit" value="Login">
+            <div class="forgot">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
